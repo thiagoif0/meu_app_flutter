@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "39659599399",
+    "project_id": "lrdronesapp",
+    "storage_bucket": "lrdronesapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39659599399:android:8cf56c76eae055cb6e4002",
+        "android_client_info": {
+          "package_name": "com.mycompany.responsivedashboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs15FzVCMDZlLT7fg7Mw4fSN-AqXeGkK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
