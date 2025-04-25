@@ -15,5 +15,10 @@ workflows:
         script: |
           cd l_r_drones_app
           flutter build apk --debug
+      - name: Build iOS
+        script: |
+          cd l_r_drones_app
+          flutter build ios --debug
     artifacts:
       - l_r_drones_app/build/**/outputs/**/*.apk
+      - l_r_drones_app/build/ios/ipa/*.ipa
