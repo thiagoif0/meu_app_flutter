@@ -11,19 +11,28 @@ workflows:
         script: |
           cd l_r_drones_app
           flutter pub get
-      - name: Install CocoaPods dependencies
+
+      - name: Clean CocoaPods
         script: |
           cd l_r_drones_app/ios
-          rm -rf Pods Podfile.lock
-          pod repo update
-          pod install
-      - name: Build APK
+          rm -rf Pods
+          rm -rf ~/Library/Caches/CocoaPods
+          rm -rf ~/.cocoapods/repos
+          pod deintegrate
+          pod setup
+
+      - name: Build Android (APK e AAB)
         script: |
           cd l_r_drones_app
           flutter build apk --debug
+          flutter build appbundle --debug
+
       - name: Build iOS
         script: |
           cd l_r_drones_app
           flutter build ios --debug
+
     artifacts:
       - l_r_drones_app/build/**/outputs/**/*.apk
+      - l_r_drones_app/build/**/outputs/**/*.aab
+      - l_r_drones_app/build/ios/ipa/*.ipa
