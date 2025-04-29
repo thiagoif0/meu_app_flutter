@@ -16,16 +16,25 @@ workflows:
         script: |
           cd l_r_drones_app/ios
           rm -rf Pods
+          rm -rf Podfile.lock
           rm -rf ~/Library/Caches/CocoaPods
           rm -rf ~/.cocoapods/repos
           pod deintegrate
           pod setup
+          pod repo update
+
 
       - name: Build Android (APK e AAB)
         script: |
           cd l_r_drones_app
           flutter build apk --debug
           flutter build appbundle --debug
+
+      - name: Install CocoaPods
+        script: |
+          cd l_r_drones_app/ios
+          pod install
+
 
       - name: Build iOS
         script: |
