@@ -38,11 +38,10 @@ workflows:
           flutter build apk --release
           flutter build appbundle --release
 
-      - name: Build iOS
+      - name: Build iOS IPA
         script: |
           cd l_r_drones_app
-          flutter build ios --release
-
+          flutter build ipa --release
 
 
     artifacts:
