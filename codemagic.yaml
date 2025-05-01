@@ -41,7 +41,8 @@ workflows:
       - name: Build iOS
         script: |
           cd l_r_drones_app
-          flutter build ipa --release
+          flutter build ios --release
+
 
 
     artifacts:
