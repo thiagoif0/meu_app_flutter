@@ -41,7 +41,8 @@ workflows:
       - name: Build iOS
         script: |
           cd l_r_drones_app
-          flutter build ipa --release --export-options-plist=/Users/builder/export_options.plist
+          flutter build ipa --release
+
 
     artifacts:
       - l_r_drones_app/build/**/outputs/**/*.apk
