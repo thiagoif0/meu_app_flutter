@@ -6,6 +6,10 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+
+    code_signing:
+      use_automatic_signing: true
+
     scripts:
       - name: Get dependencies
         script: |
@@ -23,23 +27,21 @@ workflows:
           pod setup
           pod repo update
 
-
-      - name: Build Android (APK e AAB)
-        script: |
-          cd l_r_drones_app
-          flutter build apk --debug
-          flutter build appbundle --debug
-
       - name: Install CocoaPods
         script: |
           cd l_r_drones_app/ios
           pod install
 
+      - name: Build Android (APK e AAB)
+        script: |
+          cd l_r_drones_app
+          flutter build apk --release
+          flutter build appbundle --release
 
       - name: Build iOS
         script: |
           cd l_r_drones_app
-          flutter build ios --debug
+          flutter build ipa --release --export-options-plist=/Users/builder/export_options.plist
 
     artifacts:
       - l_r_drones_app/build/**/outputs/**/*.apk
