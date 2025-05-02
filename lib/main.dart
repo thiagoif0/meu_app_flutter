@@ -83,10 +83,11 @@ class _MyAppState extends State<MyApp> {
        ..listen((user) {
     // Se não estiver logado, força redirecionamento para LoginPage
     if (user.uid == null || !user.loggedIn) {
-      _appStateNotifier.update(FakeAuthUser());
+    _appStateNotifier.update(FakeAuthUser());
     } else {
-      _appStateNotifier.update(user);
-    }
+    _appStateNotifier.update(user);
+}
+
   });
 
     jwtTokenStream.listen((_) {});
