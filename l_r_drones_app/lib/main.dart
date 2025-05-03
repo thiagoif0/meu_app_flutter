@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
        ..listen((user) {
     // Se não estiver logado, força redirecionamento para LoginPage
     if (user.uid == null || !user.loggedIn) {
-      _appStateNotifier.update(null);
+      _appStateNotifier.update(UnauthenticatedUser());
     } else {
       _appStateNotifier.update(user);
     }
