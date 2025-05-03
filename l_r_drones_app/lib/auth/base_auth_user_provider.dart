@@ -35,10 +35,31 @@ abstract class BaseAuthUser {
 
 class FakeAuthUser extends BaseAuthUser {
   @override
-  String get uid => 'fake-user';
+  AuthUserInfo get authUserInfo => AuthUserInfo(
+        uid: 'fake-user',
+        email: '',
+        displayName: '',
+        photoUrl: '',
+        phoneNumber: '',
+      );
 
   @override
-  bool get loggedIn => false;
+  bool get emailVerified => false;
+
+  @override
+  Future delete() async {}
+
+  @override
+  Future updateEmail(String email) async {}
+
+  @override
+  Future updatePassword(String newPassword) async {}
+
+  @override
+  Future sendEmailVerification() async {}
+
+  @override
+  Future refreshUser() async {}
 }
 
 
