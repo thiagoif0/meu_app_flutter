@@ -1,0 +1,50 @@
+workflows:
+  flutter-build:
+    name: Build Flutter App
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+
+    code_signing:
+      use_automatic_signing: true
+
+    scripts:
+      - name: Get dependencies
+        script: |
+          cd l_r_drones_app
+          flutter pub get
+
+      - name: Clean CocoaPods
+        script: |
+          cd l_r_drones_app/ios
+          rm -rf Pods
+          rm -rf Podfile.lock
+          rm -rf ~/Library/Caches/CocoaPods
+          rm -rf ~/.cocoapods/repos
+          pod deintegrate
+          pod setup
+          pod repo update
+
+      - name: Install CocoaPods
+        script: |
+          cd l_r_drones_app/ios
+          pod install
+
+      - name: Build Android (APK e AAB)
+        script: |
+          cd l_r_drones_app
+          flutter build apk --release
+          flutter build appbundle --release
+
+      - name: Build iOS IPA
+        script: |
+          cd l_r_drones_app
+          flutter build ipa --release
+
+
+    artifacts:
+      - l_r_drones_app/build/**/outputs/**/*.apk
+      - l_r_drones_app/build/**/outputs/**/*.aab
+      - l_r_drones_app/build/ios/ipa/*.ipa

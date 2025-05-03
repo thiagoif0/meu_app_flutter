@@ -80,9 +80,15 @@ class _MyAppState extends State<MyApp> {
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
     userStream = lRDronesAppFirebaseUserStream()
-      ..listen((user) {
-        _appStateNotifier.update(user);
-      });
+       ..listen((user) {
+    // Se não estiver logado, força redirecionamento para LoginPage
+    if (user.uid == null || !user.loggedIn) {
+      _appStateNotifier.update(null);
+    } else {
+      _appStateNotifier.update(user);
+    }
+  });
+
     jwtTokenStream.listen((_) {});
     Future.delayed(
       Duration(milliseconds: 1000),
