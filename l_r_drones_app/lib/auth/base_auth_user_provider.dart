@@ -33,5 +33,14 @@ abstract class BaseAuthUser {
   String? get phoneNumber => authUserInfo.phoneNumber;
 }
 
+class FakeAuthUser extends BaseAuthUser {
+  @override
+  String get uid => 'fake-user';
+
+  @override
+  bool get loggedIn => false;
+}
+
+
 BaseAuthUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
