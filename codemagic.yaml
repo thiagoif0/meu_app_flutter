@@ -1,29 +1,46 @@
-scripts:
-  - name: Get dependencies
-    script: |
-      flutter pub get  # ← Removido o "cd l_r_drones_app"
+workflows:
+  flutter-build:
+    name: Build Flutter App
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
 
-  - name: Clean CocoaPods
-    script: |
-      cd ios
-      rm -rf Pods
-      rm -rf Podfile.lock
-      rm -rf ~/Library/Caches/CocoaPods
-      rm -rf ~/.cocoapods/repos
-      pod deintegrate
-      pod setup
-      pod repo update
+    code_signing:
+      use_automatic_signing: true
 
-  - name: Install CocoaPods
-    script: |
-      cd ios
-      pod install
+    scripts:
+      - name: Get dependencies
+        script: |
+          flutter pub get
 
-  - name: Build Android (APK e AAB)
-    script: |
-      flutter build apk --release
-      flutter build appbundle --release
+      - name: Clean CocoaPods
+        script: |
+          cd ios
+          rm -rf Pods
+          rm -rf Podfile.lock
+          rm -rf ~/Library/Caches/CocoaPods
+          rm -rf ~/.cocoapods/repos
+          pod deintegrate
+          pod setup
+          pod repo update
 
-  - name: Build iOS IPA
-    script: |
-      flutter build ipa --release
+      - name: Install CocoaPods
+        script: |
+          cd ios
+          pod install
+
+      - name: Build Android (APK e AAB)
+        script: |
+          flutter build apk --release
+          flutter build appbundle --release
+
+      - name: Build iOS IPA
+        script: |
+          flutter build ipa --release
+
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/ios/ipa/*.ipa
