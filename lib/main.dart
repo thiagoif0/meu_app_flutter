@@ -65,7 +65,6 @@ class _MyAppState extends State<MyApp> {
 
   List<String> getRouteStack() =>
       _router.routerDelegate.currentConfiguration.matches
-          .whereType<RouteMatch>() // filtra apenas os que são do tipo correto
           .map((e) => getRoute(e))
           .toList();
 
@@ -80,16 +79,9 @@ class _MyAppState extends State<MyApp> {
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
     userStream = lRDronesAppFirebaseUserStream()
-       ..listen((user) {
-    // Se não estiver logado, força redirecionamento para LoginPage
-    if (user.uid == null || !user.loggedIn) {
-    _appStateNotifier.update(FakeAuthUser());
-    } else {
-    _appStateNotifier.update(user);
-}
-
-  });
-
+      ..listen((user) {
+        _appStateNotifier.update(user);
+      });
     jwtTokenStream.listen((_) {});
     Future.delayed(
       Duration(milliseconds: 1000),

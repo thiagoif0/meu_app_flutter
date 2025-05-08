@@ -33,37 +33,5 @@ abstract class BaseAuthUser {
   String? get phoneNumber => authUserInfo.phoneNumber;
 }
 
-class FakeAuthUser extends BaseAuthUser {
-  @override
-  AuthUserInfo get authUserInfo => const AuthUserInfo(
-        uid: 'fake-user',
-        email: '',
-        displayName: '',
-        photoUrl: '',
-        phoneNumber: '',
-      );
-
-  @override
-  bool get emailVerified => false;
-
-  @override
-  bool get loggedIn => false;
-
-  @override
-  Future<void> delete() async {}
-
-  @override
-  Future<void> updateEmail(String email) async {}
-
-  @override
-  Future<void> updatePassword(String newPassword) async {}
-
-  @override
-  Future<void> sendEmailVerification() async {}
-
-  @override
-  Future<void> refreshUser() async {}
-}
-
 BaseAuthUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
