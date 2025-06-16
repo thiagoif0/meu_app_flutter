@@ -55,3 +55,22 @@ DateTime getEndOfYear() {
   final startNextYear = DateTime(now.year + 1, 1, 1);
   return startNextYear.subtract(Duration(days: 1));
 }
+
+List<String>? getMesesDoServico() {
+  List<String> getMesesDoServico(List<ServicosRecord> docs) {
+    List<String> meses = [];
+
+    if (docs != null) {
+      for (var doc in docs) {
+        final data = doc.dataServico;
+        if (data != null) {
+          // Formata para "Jan", "Fev", etc.
+          final nomeMes = DateFormat.MMM('pt_BR').format(data);
+          meses.add(nomeMes);
+        }
+      }
+    }
+
+    return meses;
+  }
+}

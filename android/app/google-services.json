@@ -14,41 +14,13 @@
       },
       "oauth_client": [
         {
-          "client_id": "39659599399-2h8n6tqag4sbipn3sd14n1due5bjn98n.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBs15FzVCMDZlLT7fg7Mw4fSN-AqXeGkK8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "39659599399-2h8n6tqag4sbipn3sd14n1due5bjn98n.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "39659599399-1hrvmc63ig95fle6g1cg4ac4n05gmf5t.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.hackings.lrdrones"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:39659599399:android:8cf56c76eae055cb6e4002",
-        "android_client_info": {
-          "package_name": "com.mycompany.responsivedashboard"
-        }
-      },
-      "oauth_client": [
+          "client_id": "39659599399-0cl94lbg9kubue0bvfbm25m8i2ght18e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hackings.lrdrones",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
         {
           "client_id": "39659599399-2h8n6tqag4sbipn3sd14n1due5bjn98n.apps.googleusercontent.com",
           "client_type": 3

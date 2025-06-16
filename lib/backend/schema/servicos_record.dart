@@ -66,6 +66,16 @@ class ServicosRecord extends FirestoreRecord {
   double get valor => _valor ?? 0.0;
   bool hasValor() => _valor != null;
 
+  // "cliente" field.
+  String? _cliente;
+  String get cliente => _cliente ?? '';
+  bool hasCliente() => _cliente != null;
+
+  // "fazenda" field.
+  String? _fazenda;
+  String get fazenda => _fazenda ?? '';
+  bool hasFazenda() => _fazenda != null;
+
   void _initializeFields() {
     _clienteID = snapshotData['clienteID'] as DocumentReference?;
     _fazendaID = snapshotData['fazendaID'] as DocumentReference?;
@@ -77,6 +87,8 @@ class ServicosRecord extends FirestoreRecord {
     _statusPagamento = snapshotData['statusPagamento'] as String?;
     _formaPagamento = snapshotData['formaPagamento'] as String?;
     _valor = castToType<double>(snapshotData['valor']);
+    _cliente = snapshotData['cliente'] as String?;
+    _fazenda = snapshotData['fazenda'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -122,6 +134,8 @@ Map<String, dynamic> createServicosRecordData({
   String? statusPagamento,
   String? formaPagamento,
   double? valor,
+  String? cliente,
+  String? fazenda,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -133,6 +147,8 @@ Map<String, dynamic> createServicosRecordData({
       'statusPagamento': statusPagamento,
       'formaPagamento': formaPagamento,
       'valor': valor,
+      'cliente': cliente,
+      'fazenda': fazenda,
     }.withoutNulls,
   );
 
@@ -154,7 +170,9 @@ class ServicosRecordDocumentEquality implements Equality<ServicosRecord> {
         listEquality.equals(e1?.videos, e2?.videos) &&
         e1?.statusPagamento == e2?.statusPagamento &&
         e1?.formaPagamento == e2?.formaPagamento &&
-        e1?.valor == e2?.valor;
+        e1?.valor == e2?.valor &&
+        e1?.cliente == e2?.cliente &&
+        e1?.fazenda == e2?.fazenda;
   }
 
   @override
@@ -168,7 +186,9 @@ class ServicosRecordDocumentEquality implements Equality<ServicosRecord> {
         e?.videos,
         e?.statusPagamento,
         e?.formaPagamento,
-        e?.valor
+        e?.valor,
+        e?.cliente,
+        e?.fazenda
       ]);
 
   @override

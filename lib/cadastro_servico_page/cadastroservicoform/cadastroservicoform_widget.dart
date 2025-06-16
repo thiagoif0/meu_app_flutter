@@ -1,10 +1,7 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'cadastroservicoform_model.dart';
@@ -132,7 +129,16 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+    _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
+
+    _model.textController5 ??= TextEditingController();
+    _model.textFieldFocusNode5 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
+          _model.textController1?.text = 'clienteInput';
+          _model.textController2?.text = 'fazendaInput';
+        }));
   }
 
   @override
@@ -179,8 +185,111 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Cliente',
+                  Align(
+                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    child: Text(
+                      'Cliente',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.plusJakartaSans(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                  ),
+                ].divide(SizedBox(height: 8.0)),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1.0, 0.0),
+                child: Container(
+                  width: 200.0,
+                  child: TextFormField(
+                    controller: _model.textController1,
+                    focusNode: _model.textFieldFocusNode1,
+                    autofocus: false,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                font: GoogleFonts.plusJakartaSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                      hintText: 'Digite o nome do cliente',
+                      hintStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                font: GoogleFonts.plusJakartaSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           font: GoogleFonts.plusJakartaSans(
                             fontWeight: FlutterFlowTheme.of(context)
@@ -197,87 +306,121 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
+                    cursorColor: FlutterFlowTheme.of(context).primaryText,
+                    validator:
+                        _model.textController1Validator.asValidator(context),
                   ),
-                  StreamBuilder<List<ClientesRecord>>(
-                    stream: queryClientesRecord(),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<ClientesRecord> dropDownClientesRecordList =
-                          snapshot.data!;
-
-                      return FlutterFlowDropDown<String>(
-                        controller: _model.dropDownValueController1 ??=
-                            FormFieldController<String>(null),
-                        options: dropDownClientesRecordList
-                            .map((e) => valueOrDefault<String>(
-                                  e.nome,
-                                  'nome',
-                                ))
-                            .toList(),
-                        onChanged: (val) async {
-                          safeSetState(() => _model.dropDownValue1 = val);
-                          _model.clienteSelecionadoID =
-                              await actions.setClienteSelecionado(
-                            _model.dropDownValue1!,
-                          );
-
-                          safeSetState(() {});
-                        },
-                        width: double.infinity,
-                        height: 50.0,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  font: GoogleFonts.plusJakartaSans(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                        hintText: 'Selecione o cliente',
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        elevation: 0.0,
-                        borderColor: FlutterFlowTheme.of(context).alternate,
-                        borderWidth: 1.0,
-                        borderRadius: 8.0,
-                        margin:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        isSearchable: false,
-                        isMultiSelect: false,
-                      );
-                    },
-                  ),
-                ].divide(SizedBox(height: 8.0)),
+                ),
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Fazenda',
+                  Align(
+                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    child: Text(
+                      'Fazenda',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.plusJakartaSans(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                  ),
+                ].divide(SizedBox(height: 8.0)),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1.0, 0.0),
+                child: Container(
+                  width: 200.0,
+                  child: TextFormField(
+                    controller: _model.textController2,
+                    focusNode: _model.textFieldFocusNode2,
+                    autofocus: false,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                font: GoogleFonts.plusJakartaSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                      hintText: 'Digite o nome da fazenda',
+                      hintStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                font: GoogleFonts.plusJakartaSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           font: GoogleFonts.plusJakartaSans(
                             fontWeight: FlutterFlowTheme.of(context)
@@ -294,75 +437,11 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
+                    cursorColor: FlutterFlowTheme.of(context).primaryText,
+                    validator:
+                        _model.textController2Validator.asValidator(context),
                   ),
-                  FutureBuilder<List<FazendasRecord>>(
-                    future: queryFazendasRecordOnce(),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<FazendasRecord> dropDownFazendasRecordList =
-                          snapshot.data!;
-
-                      return FlutterFlowDropDown<String>(
-                        controller: _model.dropDownValueController2 ??=
-                            FormFieldController<String>(null),
-                        options: <String>[],
-                        onChanged: (val) async {
-                          safeSetState(() => _model.dropDownValue2 = val);
-                          _model.fazendaSelecionadaID =
-                              await actions.setFazendaSelecionada(
-                            _model.dropDownValue2!,
-                          );
-
-                          safeSetState(() {});
-                        },
-                        width: double.infinity,
-                        height: 50.0,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  font: GoogleFonts.plusJakartaSans(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                        hintText: 'Selecione a fazenda',
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        elevation: 0.0,
-                        borderColor: FlutterFlowTheme.of(context).alternate,
-                        borderWidth: 1.0,
-                        borderRadius: 8.0,
-                        margin:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        isSearchable: false,
-                        isMultiSelect: false,
-                      );
-                    },
-                  ),
-                ].divide(SizedBox(height: 8.0)),
+                ),
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
@@ -388,8 +467,8 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                         ),
                   ),
                   TextFormField(
-                    controller: _model.textController1,
-                    focusNode: _model.textFieldFocusNode1,
+                    controller: _model.textController3,
+                    focusNode: _model.textFieldFocusNode3,
                     autofocus: false,
                     textInputAction: TextInputAction.next,
                     obscureText: false,
@@ -463,7 +542,7 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                         ),
                     minLines: 1,
                     validator:
-                        _model.textController1Validator.asValidator(context),
+                        _model.textController3Validator.asValidator(context),
                   ),
                 ].divide(SizedBox(height: 8.0)),
               ),
@@ -491,8 +570,8 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                         ),
                   ),
                   TextFormField(
-                    controller: _model.textController2,
-                    focusNode: _model.textFieldFocusNode2,
+                    controller: _model.textController4,
+                    focusNode: _model.textFieldFocusNode4,
                     autofocus: false,
                     textInputAction: TextInputAction.next,
                     obscureText: false,
@@ -567,7 +646,7 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                     minLines: 1,
                     keyboardType: TextInputType.number,
                     validator:
-                        _model.textController2Validator.asValidator(context),
+                        _model.textController4Validator.asValidator(context),
                   ),
                 ].divide(SizedBox(height: 8.0)),
               ),
@@ -595,8 +674,8 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                         ),
                   ),
                   TextFormField(
-                    controller: _model.textController3,
-                    focusNode: _model.textFieldFocusNode3,
+                    controller: _model.textController5,
+                    focusNode: _model.textFieldFocusNode5,
                     autofocus: false,
                     textInputAction: TextInputAction.next,
                     obscureText: false,
@@ -671,7 +750,7 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                     minLines: 1,
                     keyboardType: TextInputType.number,
                     validator:
-                        _model.textController3Validator.asValidator(context),
+                        _model.textController5Validator.asValidator(context),
                   ),
                 ].divide(SizedBox(height: 8.0)),
               ),
@@ -757,8 +836,8 @@ class _CadastroservicoformWidgetState extends State<CadastroservicoformWidget> {
                   await ServicosRecord.collection
                       .doc()
                       .set(createServicosRecordData(
-                        clienteID: _model.clienteSelecionadoID,
-                        fazendaID: _model.fazendaSelecionadaID,
+                        cliente: _model.textController1.text,
+                        fazenda: _model.textController2.text,
                       ));
                 },
                 text: 'Salvar Serviço',
