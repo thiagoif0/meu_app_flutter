@@ -640,10 +640,7 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        valueOrDefault<String>(
-                                                          homePageDashboardCount
-                                                              .toString(),
-                                                          '0',
+                                                        (homePageDashboardCount ?? 0).toString(),
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
