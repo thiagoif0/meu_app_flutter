@@ -351,9 +351,9 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///C:/Users/Micro/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.19.0",
+      "rootUri": "file:///C:/Users/Micro/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.20.2",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.3"
     },
     {
       "name": "iregexp",
@@ -770,7 +770,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-06-16T19:59:49.255427Z",
+  "generated": "2025-06-16T21:53:17.254270Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///D:/flutter_sdk/flutter",
