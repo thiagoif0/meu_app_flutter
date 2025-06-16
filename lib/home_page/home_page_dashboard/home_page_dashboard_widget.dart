@@ -641,7 +641,6 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                                   0.0),
                                                       child: Text(
                                                         (homePageDashboardCount ?? 0).toString(),
-                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -658,6 +657,7 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                                         .displaySmall
                                                                         .fontStyle,
                                                                   ),
+                                                      ),
                                                                   fontSize:
                                                                       16.0,
                                                                   letterSpacing:
