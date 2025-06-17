@@ -899,24 +899,11 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                           child: Text(
                             'Resumo financeiro:',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  font: GoogleFonts.urbanist(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
+                                     style: GoogleFonts.urbanist(
+                                       textStyle: FlutterFlowTheme.of(context).titleLarge.copyWith(
+                                    fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                   ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
                                 ),
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation6']!),
