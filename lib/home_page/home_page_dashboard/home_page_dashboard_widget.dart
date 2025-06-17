@@ -649,7 +649,7 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                                 fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle
                                                               ),
                                                            ),
-                                                                ),
+                                                        ),
                                                       ).animateOnPageLoad(
                                                           animationsMap[
                                                               'textOnPageLoadAnimation3']!),
