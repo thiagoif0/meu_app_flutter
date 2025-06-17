@@ -645,22 +645,10 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                               textStyle: FlutterFlowTheme.of(context).displaySmall.copyWith(
                                                                 fontSize: 16.0,
                                                                 letterSpacing: 0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(context).displaySmall.fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle
-                                                                  ),
-                                                      ),
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmall
-                                                                      .fontStyle,
+                                                                fontWeight: FlutterFlowTheme.of(context).displaySmall.fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle
+                                                              ),
+                                                           ),
                                                                 ),
                                                       ).animateOnPageLoad(
                                                           animationsMap[
