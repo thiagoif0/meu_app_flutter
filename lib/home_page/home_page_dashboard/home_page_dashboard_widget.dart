@@ -641,21 +641,12 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                                   0.0),
                                                       child: Text(
                                                         (homePageDashboardCount ?? 0).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .urbanist(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .fontStyle,
+                                                            style: GoogleFonts.urbanist(
+                                                              textStyle: FlutterFlowTheme.of(context).displaySmall.copyWith(
+                                                                fontSize: 16.0,
+                                                                letterSpacing: 0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(context).displaySmall.fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle
                                                                   ),
                                                       ),
                                                                   fontSize:
