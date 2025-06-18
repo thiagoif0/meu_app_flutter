@@ -651,10 +651,8 @@ class _HomePageDashboardWidgetState extends State<HomePageDashboardWidget>
                                                            ),
                                                         ),
                                                       ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'textOnPageLoadAnimation3']!),
+                                                        animationsMap['textOnPageLoadAnimation3'],
                                                     ),
-                                                  ],
                                                 ),
                                               ),
                                             ],
